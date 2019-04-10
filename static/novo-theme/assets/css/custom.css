@@ -1,0 +1,44 @@
+AREA DE COMPOSE*/
+/*.compose-container{width: 100%; height: 100vh; position: relative;}*/
+/*#page-footer{position: absolute; bottom: 0; max-width: 100%; width: 100%;}*/
+
+/*NAVBAR*/
+.header{padding-bottom: 0 !important;}
+.header .header-main .column-left{background-color: #2C343F; width: 242px;}
+.header .header-main .column-left a h1{font-size: 1.5rem; color: #fff; line-height: 1;}
+/*.header #userlist-toggle{display}*/
+
+/*SIDEBAR LEFT;*/
+#left-sidebar{height: 100%; background-color: #2C343F; margin-top: 44px;  overflow: visible; overflow-y: scroll;}
+#left-sidebar .narrows_panel{margin: 0 .2rem; height: 58rem;}
+#left-sidebar li {padding-bottom: 2px; line-height: 1.5;}
+#left-sidebar li a{color: #909397; font-size: 1rem;}
+#left-sidebar .all-messages-arrow, .starred-messages-sidebar-arrow{top: 5px;}
+#left-sidebar #stream-filters-container #stream_filters .stream-sidebar-arrow, #user_presences li .user-list-arrow{top: 5px;}
+#left-sidebar #streams_header h4, #user-list #userlist-header h4{font-size: 1.2rem; font-weight: bold;}
+#left-sidebar #streams_header #streams_inline_cog, #left-sidebar #streams_header #streams_filter_icon, #user-list #user_filter_icon{font-size: .9rem; font-weight: bold; color: #fff;}
+#left-sidebar #streams_header .stream_search_section, #user-list #user_search_section{margin-top: 5px;}
+#left-sidebar #user-list{padding-top: 5px;}
+
+/*TOPICOS DO HEADER DA MENSAGEM*/
+.topic-list, .message_list .stream_label, #current_label_private_message, #current_label_stream{display: none !important;}
+
+/*COMPOSER*/
+.message_comp .compose-content{display: block !important;}
+/*#compose_controls, #stream-message{display: none;}*/
+
+/*LISTA DE USUÁRIOS*/
+#user-list #user_search_section .user-list-filter, .stream_search_section .stream-list-filter{width: 180px;}
+#invite-user-link{margin-left: .8rem; color: #fff; text-decoration: none;}
+
+/*RIGHT SIDEBAR*/
+@media all and (min-width: 1300px){	
+.toggle_right_sidebar{display: none;}
+#userlist-toggle{display: block; right: 3rem;}
+}
+
+/*MESSAGEM*/
+.selected_message .messagebox-content, .messagebox {box-shadow: none !important;}
+.private-message .messagebox{background-color: transparent;}
+.message-header-contents .stream_topic, .message-header-contents .recipient_bar_controls{display: none;}
+

@@ -41,8 +41,24 @@
     </head>
 
     <body {% if night_mode %}class="night-mode"{% endif %}>
-        {% block content %}
-        {% endblock %}
+        <!-- <div id="page-container" class="sidebar-o sidebar-dark enable-page-overlay side-scroll page-header-fixed"> -->
+            {% block content %}
+            {% endblock %}
+        <!-- </div> -->
+        <!-- <script src="/static/novo-theme/assets/js/oneui.core.min.js"></script> -->
+        <!-- <script src="/static/novo-theme/assets/js/oneui.app.min.js"></script> -->
+        <script>
+            // $('link[href="/webpack/app.css"]').prop('disabled', true);
+            jQuery(document).ready(function($) {
+                $('#userlist-toggle-button').on('click',function(){
+                    if($('.right_sidebar').hasClass('expanded')){
+                        $('.right_sidebar').removeClass('toggle_right_sidebar');
+                    }else{
+                        $('.right_sidebar').addClass('toggle_right_sidebar');
+                    }
+                });
+            });
+        </script>
     </body>
 
 </html>

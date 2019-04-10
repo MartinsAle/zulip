@@ -20,6 +20,7 @@
 <meta name="apple-mobile-web-app-capable" content="yes">
 <link href="/static/images/logo/apple-touch-icon-precomposed.png" rel="apple-touch-icon-precomposed">
 <link id="emoji-spritesheet" href="/static/generated/emoji/{{ emojiset }}-sprite.css" rel="stylesheet" type="text/css">
+<link rel="stylesheet" id="css-main" href="/static/novo-theme/assets/css/custom.css">
 <style>
     #css-loading {
     background-color: hsl(0, 0%, 100%);
@@ -134,7 +135,7 @@
                 {% endif %}
             </div><!--/tab-content-->
         </div>
-        <div class="column-right">
+        <div class="column-right right_sidebar toggle_right_sidebar">
             {% include "zerver/app/right_sidebar.html" %}
         </div><!--/right sidebar-->
     </div><!--/row-->
