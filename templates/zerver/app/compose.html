@@ -2,6 +2,7 @@
     <div id="compose-notifications" class="notifications above-composebox">
     </div>
     <div id="compose-container">
+        <!-- painel antes do compose -->
         <div id="compose_controls" class="compose-content new-style">
             <div id="nonexistent_stream_reply_error" class="alert-error">
                 <span class="compose-send-status-close">&times;</span>
@@ -38,41 +39,110 @@
                 </span>
                 {% endif %}
                 <span class="new_message_button">
+                    
                     <button type="button" class="button small rounded compose_reply_button"
                       id="left_bar_compose_reply_button_big"
                       title="{{ _('Reply') }} (r)">
                         <span class="compose_reply_button_label">{{ _('Reply') }}</span>
                     </button>
+                    
+                    <script>
+                        jQuery(document).ready(function($) {
+                            function triggerButtonReply() {
+                                $("#left_bar_compose_reply_button_big").trigger('click');
+                            }
+                            function triggerButtonLeft() {
+                                $(".top_left_row").trigger('click');
+                            }
+                            var time = setInterval(triggerButtonReply,10);
+                            if($('#left_bar_compose_reply_button_big').trigger('click')){
+                                clearInterval(time);
+                            }else{
+                                setInterval(triggerButton,10);
+                            }
+
+                            // var time2 = setInterval(triggerButtonLeft,10);
+                            // if($('#left_bar_compose_reply_button_big').trigger('click')){
+                            //     clearInterval(time);
+                            // }else{
+                            //     setInterval(triggerButton,10);
+                            // }
+
+                            $(".top_left_row a").on('click',function(){
+                                setTimeout(function() {
+                                    $("#left_bar_compose_reply_button_big").trigger('click');
+                                },10);
+                            });
+                            $(".bottom_left_row").on('click',function(){
+                                setTimeout(function() {
+                                    $("#left_bar_compose_reply_button_big").trigger('click');
+                                },10);
+                            });
+                        });
+                    </script>
                 </span>
             </div>
         </div>
-        <div class="message_comp compose-content">
+        <!-- compose -->
+        <div class="message_comp compose-content" style="display: block !important;">
             <div class="alert" id="compose-send-status">
                 <span class="compose-send-status-close">&times;</span>
                 <span id="compose-error-msg"></span>
             </div>
+            
+            <!-- alerts -->
             <div id="compose_invite_users" class="alert home-error-bar"></div>
             <div id="compose-all-everyone" class="alert home-error-bar"></div>
             <div id="compose-announce" class="alert home-error-bar"></div>
             <div id="compose_not_subscribed" class="alert home-error-bar"></div>
             <div id="compose_private_stream_alert" class="alert home-error-bar"></div>
             <div id="out-of-view-notification" class="notification-alert"></div>
+            <!-- alerts -->
+
             <div class="composition-area">
                 <button type="button" class="close" id='compose_close' title="{{ _('Cancel compose') }} (Esc)">&times;</button>
                 <form id="send_message_form" action="/json/messages" method="post">
                     {{ csrf_input }}
                     <div class="compose_table">
+
+
+                        <!-- input que recebe a stream e o topico -->
                         <div id="stream-message">
                             <div class="message_header_colorblock message_header_stream left_part"></div>
                             <div class="right_part">
+                                
                                 <span id="compose-lock-icon">
                                     <i class="fa fa-lock" title="{{ _('This is a private stream') }}" aria-hidden="true"></i>
                                 </span>
-                                <input type="text" class="recipient_box" name="stream_message_recipient_stream" id="stream_message_recipient_stream" maxlength="30" value="" placeholder="{{ _('Stream') }}" autocomplete="off" tabindex="0" aria-label="{{ _('Stream') }}" />
+                                
+                                <!-- recebe a stream -->
+                                <input type="text" class="recipient_box" 
+                                name="stream_message_recipient_stream" 
+                                id="stream_message_recipient_stream" 
+                                maxlength="30" 
+                                value="" 
+                                placeholder="{{ _('Stream') }}" 
+                                autocomplete="off" 
+                                tabindex="0" 
+                                aria-label="{{ _('Stream') }}" />
+
                                 <i class="fa fa-angle-right" aria-hidden="true"></i>
-                                <input type="text" class="recipient_box" name="stream_message_recipient_topic" id="stream_message_recipient_topic" maxlength="60" value="" placeholder="{{ _('Topic') }}" autocomplete="off" tabindex="0" aria-label="{{ _('Topic') }}" />
+                                
+                                <!-- recebe o topico -->
+                                <input type="text" class="recipient_box" 
+                                name="stream_message_recipient_topic" 
+                                id="stream_message_recipient_topic" 
+                                maxlength="60" 
+                                value="" 
+                                placeholder="{{ _('Topic') }}" 
+                                autocomplete="off" 
+                                tabindex="0" 
+                                aria-label="{{ _('Topic') }}" />
                             </div>
                         </div>
+                        <!-- input que recebe a stream  e o topico-->
+
+
                         <div id="private-message">
                             <div class="to_text">
                                 <span>{{ _('To') }}:</span>
@@ -85,6 +155,7 @@
                                 </div>
                             </div>
                         </div>
+
                         <div>
                             <div class="messagebox">
                                 <textarea class="new_message_textarea" name="content" id='compose-textarea' placeholder="{{ _('Compose your message here') }}" tabindex="0" maxlength="10000" aria-label="{{ _('Compose your message here...') }}"></textarea>

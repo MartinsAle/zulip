@@ -26,6 +26,8 @@ AREA DE COMPOSE*/
 /*COMPOSER*/
 .message_comp .compose-content{display: block !important;}
 /*#compose_controls, #stream-message{display: none;}*/
+#stream_message_recipient_topic, .right_part  .fa-angle-right, #stream_message_recipient_stream, #send_controls{display: none !important;}
+.message_list .recipient_row{border: none;}
 
 /*LISTA DE USUÁRIOS*/
 #user-list #user_search_section .user-list-filter, .stream_search_section .stream-list-filter{width: 180px;}
